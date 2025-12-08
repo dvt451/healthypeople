@@ -22,7 +22,17 @@ export default function VideoSection() {
 						<div className="video-section__play-button_layer"></div>
 						<CiPlay1 />
 					</button>
-					<video controlsList="nodownload" ref={videoRef} >
+					<video
+						controlsList="nodownload"
+						ref={videoRef}
+						playsInline
+						webkit-playsinline="true"
+						preload="metadata"
+						disablePictureInPicture
+						poster="/images/video-poster.png"
+						style={{ cursor: 'pointer' }}
+						aria-label="Hospital video presentation"
+					>
 						<source src="/videos/clouds.mp4" type='video/mp4' />
 					</video>
 				</div>

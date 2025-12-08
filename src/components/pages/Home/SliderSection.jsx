@@ -9,9 +9,6 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import 'swiper/css';
 
 export default function SliderSection({ nameClass = '', arrayItems = [], sectionTitle = '' }) {
-	const [hoveredIndex, setHoveredIndex] = useState(0);
-
-
 	return (
 		<div className={`${nameClass}slider-section`}>
 			<div className="slider-section__container">
@@ -57,8 +54,6 @@ export default function SliderSection({ nameClass = '', arrayItems = [], section
 					{arrayItems.map((item, index) => (
 						<SwiperSlide key={item.id}>
 							<SliderCard
-								isHovered={hoveredIndex === index}
-								onHover={setHoveredIndex}
 								i={index}
 								item={item}
 							/>

@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 import { FaArrowRightLong } from "react-icons/fa6";
 
-export default function SliderCard({ i, item, isHovered, onHover }) {
+export default function SliderCard({ i, item }) {
 	const depCardNumber = (i + 1) / 10 < 10 ? `0${i + 1}` : `${i + 1}`;
 
 	return (
 		<div
-			onMouseEnter={() => onHover?.(i)}
-			onMouseLeave={() => onHover?.(-1)}
-			className={`department-card ${isHovered ? 'hovered' : ''}`}
+			className={`department-card`}
 		>
 			<div className="department-card__image">
 				<div className="department-card__layer"></div>

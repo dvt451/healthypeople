@@ -177,7 +177,6 @@
 	}
 }
 .video-section {
-	padding-bottom: toRem(92);
 	// .video-section__container
 
 	&__container {
@@ -199,7 +198,7 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		z-index: 1;
-		font-size: toRem(50);
+		@include adaptiveValue("font-size", 50, 35);
 		color: var(--white);
 		border-radius: 50%;
 		border: toRem(3) solid;
@@ -207,6 +206,8 @@
 		align-items: center;
 		width: toRem(150);
 		height: toRem(150);
+		@include adaptiveValue("width", 150, 70);
+		@include adaptiveValue("height", 150, 70);
 		overflow: hidden;
 		&_layer {
 			position: absolute;

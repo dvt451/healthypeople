@@ -21,24 +21,26 @@ $AnimationSpeed: 0.4;
 	height: toRem(400);
 	overflow: hidden;
 	color: var(--white);
-	&.hovered {
-		@media (min-width: $tablet) {
-			.department-card__image {
-				visibility: visible;
-				opacity: 1;
-				top: 0;
-				scale: 1.2;
-			}
-			.department-card__bottom {
-				transform: translateY(toRem(70));
-			}
-			.department-card__title,
-			.department-card__number,
-			svg {
-				font-size: toRem(30);
-			}
-			.department-card__text {
-				opacity: 0;
+	@media (min-width: $tablet) {
+		@media (any-hover: hover) {
+			&:hover {
+				.department-card__image {
+					visibility: visible;
+					opacity: 1;
+					top: 0;
+					scale: 1.2;
+				}
+				.department-card__bottom {
+					transform: translateY(toRem(70));
+				}
+				.department-card__title,
+				.department-card__number,
+				svg {
+					font-size: toRem(30);
+				}
+				.department-card__text {
+					opacity: 0;
+				}
 			}
 		}
 	}
@@ -70,7 +72,7 @@ $AnimationSpeed: 0.4;
 		height: 100%;
 		top: 0;
 		left: 0;
-		background-color: #0005;
+		background-color: #0006;
 		z-index: 1;
 	}
 

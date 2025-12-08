@@ -70,11 +70,14 @@
 		.header-logo {
 			&__text {
 				color: var(--white);
+				font-size: toRem(16);
 			}
 		}
 		.header-logo-icon {
 			background-color: var(--white);
 			color: var(--primary);
+			width: toRem(50);
+			height: toRem(50);
 		}
 	}
 
