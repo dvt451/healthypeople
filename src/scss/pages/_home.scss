@@ -1,0 +1,249 @@
+@use "../settings" as *;
+@use "../base/mixins" as *;
+//====================================================================================================
+.home-page {
+	// .home-page__hero
+
+	&__hero {
+	}
+}
+.home-page-hero {
+	padding-top: toRem(95);
+	@media (max-width: $tablet) {
+		padding-top: toRem(30);
+	}
+	&__container {
+	}
+
+	&__top {
+		display: flex;
+		gap: toRem(30);
+		@media (max-width: $tablet) {
+			flex-direction: column;
+		}
+	}
+
+	&__bottom {
+		padding-top: toRem(100);
+	}
+	// .home-page-hero__column
+
+	&__column {
+		flex: 1 1 auto;
+		&_image {
+			flex: 1 1 100%;
+			@media (max-width: $tablet) {
+				display: none !important;
+			}
+		}
+	}
+}
+.home-page-hero-content {
+	display: flex;
+	flex-direction: column;
+	gap: toRem(25);
+
+	&__home-page-hero-image {
+		@media (min-width: $tablet) {
+			display: none !important;
+		}
+	}
+	// .home-page-hero-content__title
+
+	&__title {
+		@media (min-width: $tablet) {
+			margin-bottom: toRem(25);
+		}
+	}
+
+	// .home-page-hero-content__sub-title
+
+	&__sub-title {
+		font-size: toRem(18);
+		max-width: toRem(585);
+		@media (max-width: $mobile) {
+			font-size: toRem(16);
+		}
+	}
+
+	// .home-page-hero-content__button
+
+	&__button {
+		display: flex;
+		align-items: center;
+		gap: toRem(25);
+		transition: all 0.3s ease;
+		@media (any-hover: hover) {
+			&:hover {
+				gap: toRem(40);
+				span {
+					&::before {
+						width: 100%;
+					}
+				}
+			}
+		}
+		span {
+			font-size: toRem(18);
+			@media (max-width: $mobile) {
+				font-size: toRem(16);
+			}
+			font-weight: 600;
+			position: relative;
+			&::before {
+				content: "";
+				position: absolute;
+				width: 0%;
+				height: toRem(2);
+				top: 100%;
+				left: 0;
+				background-color: var(--primary2);
+				transition: all 0.3s ease;
+			}
+		}
+		svg {
+			font-size: toRem(35);
+			@media (max-width: $mobile) {
+				font-size: toRem(25);
+			}
+		}
+	}
+}
+.home-page-hero-image {
+	position: relative;
+	display: flex;
+	justify-content: flex-end;
+	align-items: start;
+	@media (max-width: $tablet) {
+		justify-content: start;
+	}
+	// .home-page-hero-image__overlay
+
+	&__overlay {
+	}
+
+	// .home-page-hero-image__screen
+
+	&__screen {
+		max-width: 65%;
+		@media (max-width: $tablet) {
+			max-width: 50%;
+		}
+		video {
+			width: 100%;
+		}
+	}
+}
+.home-page-hero-bottom {
+	// .home-page-hero-bottom__labels
+
+	&__labels {
+		display: flex;
+		justify-content: space-between;
+		@media (max-width: $tablet) {
+			flex-direction: column;
+		}
+	}
+
+	// .home-page-hero-bottom__label
+
+	&__label {
+		flex: 0 1 25%;
+	}
+}
+.home-page-hero-bottom-label {
+	border-top: toRem(1) solid;
+	display: flex;
+	flex-direction: column;
+	gap: toRem(16);
+	padding: toRem(20) toRem(10);
+	text-align: left;
+	@media (any-hover: hover) {
+		&:hover {
+			.home-page-hero-bottom-label__text {
+				text-decoration: underline;
+			}
+		}
+	}
+	// .home-page-hero-bottom-label__number
+
+	&__number {
+	}
+
+	// .home-page-hero-bottom-label__text
+
+	&__text {
+		transition: all 0.3s ease;
+	}
+}
+.video-section {
+	padding-bottom: toRem(92);
+	// .video-section__container
+
+	&__container {
+	}
+
+	// .video-section__head
+
+	&__head {
+	}
+
+	// .video-section__title
+
+	&__title {
+	}
+
+	&__play-button {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 1;
+		font-size: toRem(50);
+		color: var(--white);
+		border-radius: 50%;
+		border: toRem(3) solid;
+		justify-content: center;
+		align-items: center;
+		width: toRem(150);
+		height: toRem(150);
+		overflow: hidden;
+		&_layer {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: var(--primary);
+			transition: all 0.2s ease;
+			opacity: 0.2;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				.video-section__play-button_layer {
+					opacity: 0.5;
+				}
+			}
+		}
+		svg {
+			position: relative;
+			left: toRem(3);
+		}
+	}
+
+	// .video-section__video-wrapper
+
+	&__video-wrapper {
+		width: 100%;
+		padding-top: 40%;
+		position: relative;
+		video {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+		}
+	}
+}

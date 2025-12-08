@@ -1,0 +1,177 @@
+@use "../settings" as *;
+@use "../base/mixins" as *;
+//========================================================================================================================================================
+.slider-section {
+	position: relative;
+	padding-block: toRem(92);
+	&__container {
+	}
+	&__head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: toRem(30);
+	}
+}
+$AnimationSpeed: 0.4;
+.department-card {
+	color: var(--primary);
+	background-color: #f3f3f3;
+	position: relative;
+	height: toRem(400);
+	overflow: hidden;
+	color: var(--white);
+	&.hovered {
+		@media (min-width: $tablet) {
+			.department-card__image {
+				visibility: visible;
+				opacity: 1;
+				top: 0;
+				scale: 1.2;
+			}
+			.department-card__bottom {
+				transform: translateY(toRem(70));
+			}
+			.department-card__title,
+			.department-card__number,
+			svg {
+				font-size: toRem(30);
+			}
+			.department-card__text {
+				opacity: 0;
+			}
+		}
+	}
+
+	// .department-card__image
+
+	&__image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		scale: 1;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		transition: all #{$AnimationSpeed + s} ease;
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+		}
+	}
+
+	&__layer {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: #0005;
+		z-index: 1;
+	}
+
+	// .department-card__content
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		padding: toRem(25);
+		position: relative;
+		z-index: 2;
+		@media (max-width: $mobile) {
+			color: var(--white);
+		}
+	}
+
+	&__top {
+		flex: 1 1 auto;
+	}
+
+	&__number {
+		font-size: toRem(22);
+		font-family: "Montserrat";
+		transition: all #{$AnimationSpeed + s} ease;
+	}
+
+	&__bottom {
+		transition: all #{$AnimationSpeed + s} ease;
+	}
+
+	// .department-card__head
+
+	&__head {
+		padding-bottom: toRem(20);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		transition: all #{$AnimationSpeed + s} ease;
+		svg {
+			transition: all #{$AnimationSpeed + s} ease;
+		}
+	}
+
+	// .department-card__title
+
+	&__title {
+		font-size: toRem(22);
+		font-family: "Montserrat";
+		transition: all #{$AnimationSpeed + s} ease;
+	}
+
+	// .department-card__text
+
+	&__text {
+		font-size: toRem(16);
+		padding-top: toRem(20);
+		border-top: toRem(1) solid;
+		transition: all #{$AnimationSpeed + s} ease;
+	}
+}
+.slider-navigation {
+	display: flex;
+	gap: toRem(20);
+	@include adaptiveValue("gap", 20, 10);
+}
+.swiper-button {
+	border: toRem(1) solid;
+	border-radius: 50%;
+	width: toRem(65);
+	height: toRem(65);
+	@include adaptiveValue("width", 65, 45);
+	@include adaptiveValue("height", 65, 45);
+	transition: all 0.2s ease;
+	&.swiper-button-disabled {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+	svg {
+		width: 50%;
+		height: 100%;
+		object-fit: contain;
+		transform-origin: center;
+		pointer-events: none;
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			color: var(--primary2);
+		}
+	}
+}
+.swiper-slide {
+	&:not(:last-child) {
+		.department-card {
+			@media (min-width: $mobileSmall) {
+				border-right: toRem(1) solid;
+			}
+		}
+	}
+}
+.swiper-button-prev {
+}
+.swiper-button-next {
+}

@@ -1,0 +1,366 @@
+@use "../settings" as *;
+@use "../base/mixins" as *;
+
+//====================================================================================================
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+	&.menu-opened {
+		.header-sub-menu {
+			visibility: visible;
+			opacity: 1;
+		}
+		.header-sub-menu-frame {
+			transform: translate(0, 0%);
+			visibility: visible;
+			&__item {
+				opacity: 1;
+				transform: translate(toRem(0), toRem(0));
+			}
+		}
+	}
+	&.burger-opened {
+		.header-logo-icon {
+			background-color: var(--white);
+			color: var(--primary);
+			transition: all 0s ease;
+		}
+		.header-logo__text {
+			transition: all 0s ease;
+			color: var(--white);
+		}
+		.header__container {
+			box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+		}
+		.header__overlay {
+			transform: translateX(0%);
+		}
+	}
+
+	&__overlay {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: var(--primary);
+		transform: translateX(-100%);
+		transition: all 0.2s ease 0s;
+		z-index: 1;
+	}
+
+	// .header__container
+
+	&__container {
+		max-width: 100%;
+		display: flex;
+		justify-content: space-between;
+		background-color: var(--white);
+		box-shadow: 0 0 toRem(3) rgba(0, 0, 0, 0.3);
+		padding-block: toRem(15);
+		position: relative;
+		z-index: 21;
+	}
+
+	// .header__logo
+
+	&__logo {
+		position: relative;
+		z-index: 1;
+	}
+
+	// .header__menu
+
+	&__menu {
+		display: flex;
+		@media (max-width: $tablet) {
+			display: none;
+		}
+	}
+}
+.header-sub-menu {
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: flex-end;
+	z-index: 22;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.2s ease;
+	&__Layer {
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: #0007;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		cursor: auto;
+	}
+	&__frame {
+	}
+}
+.menu {
+	// .menu__list
+
+	&__list {
+		display: flex;
+		gap: toRem(36);
+		align-items: center;
+		height: 100%;
+	}
+
+	// .menu__item
+
+	&__item {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		button {
+			display: flex;
+			align-items: center;
+			gap: toRem(3);
+		}
+	}
+
+	// .menu__link
+
+	&__link {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		&_hv {
+			span {
+				display: inline-block;
+				position: relative;
+				&::before {
+					content: "";
+					position: absolute;
+					width: 0%;
+					height: toRem(2);
+					top: 100%;
+					right: 0;
+					background-color: var(--primary2);
+					transition: all 0.3s ease;
+				}
+			}
+			@media (any-hover: hover) {
+				&:hover {
+					span {
+						&::before {
+							width: 100%;
+							left: 0;
+						}
+					}
+				}
+			}
+			&.active {
+				font-weight: 600;
+			}
+		}
+		&_contact {
+			display: flex;
+			align-items: center;
+			height: auto;
+			transition: all 0.2s ease 0.01s;
+			span {
+				background-color: var(--primary);
+				color: var(--white);
+				padding: toRem(5) toRem(8);
+				border-radius: toRem(5);
+			}
+		}
+		&_appointment {
+			height: auto;
+			gap: toRem(10) !important;
+			transition: all 0.2s ease 0.01s;
+			span {
+				background-color: var(--primary2);
+				color: var(--white);
+				padding: toRem(5) toRem(8);
+				border-radius: toRem(5);
+			}
+		}
+	}
+}
+.header-sub-menu-frame {
+	position: relative;
+	z-index: 2;
+	transition: all 0.2s ease;
+	background-color: var(--white);
+	border-left: toRem(1) solid var(--primary);
+	width: toRem(400);
+	padding-block: toRem(40);
+	padding-inline: toRem(20);
+	transform: translate(100%, 0);
+	@media (max-width: $mobile) {
+		width: 100%;
+	}
+	&__close-button {
+		@media (min-width: $mobile) {
+			display: none !important;
+		}
+		span,
+		&::before,
+		&::after {
+			background-color: #000 !important;
+		}
+	}
+	h2 {
+		font-family: "Montserrat";
+		font-size: toRem(40);
+		text-align: center;
+		font-weight: 500;
+		padding-top: toRem(50);
+	}
+
+	// .header-sub-menu-frame__wrapper
+
+	&__wrapper {
+		padding-block: toRem(50);
+		padding-inline: toRem($containerPadding);
+	}
+	&__form {
+		@include adaptiveValue("margin-top", 100, 50, 767);
+	}
+}
+.appointment-form {
+	// .appointment-form__label
+	&__label {
+		input {
+			width: 100%;
+			background-color: transparent;
+			padding: toRem(20);
+			border-bottom: toRem(1) solid;
+			outline: none;
+			&:focus {
+				border-bottom: toRem(2) solid;
+			}
+		}
+	}
+
+	// .appointment-form__button
+
+	&__button {
+		background-color: var(--primary);
+		border: toRem(1) solid;
+		color: var(--white);
+		padding: toRem(10) toRem(48);
+		margin-left: auto;
+		display: flex;
+		margin-top: toRem(30);
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: var(--primary2);
+			}
+		}
+	}
+}
+
+//Burger
+.burger-button {
+	display: none;
+	margin-block: auto;
+	background-color: transparent;
+	@media (max-width: $tablet) {
+		display: block;
+		position: relative;
+		flex: 0 0 toRem(30);
+		width: toRem(30);
+		height: toRem(18);
+		transition: all 0.3s;
+		z-index: 21;
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: toRem(2);
+			background-color: #000;
+		}
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+		span {
+			top: calc(50% - toRem(1));
+		}
+	}
+	&._active {
+		span,
+		&::before,
+		&::after {
+			background-color: #fff;
+		}
+	}
+}
+@media (max-width: $tablet) {
+	.burger-button._active {
+		transform: translateY(0);
+		span {
+			width: 0;
+		}
+		&::before {
+			top: calc(50% - toRem(-0.5));
+			transform: rotate(-45deg) translate(1px);
+		}
+		&::after {
+			bottom: calc(50% - toRem(1));
+			transform: rotate(45deg) translate(1px);
+		}
+	}
+}
+.burger-body {
+	@media (min-width: $tablet) {
+		display: none;
+	}
+	position: fixed;
+	top: 0;
+	transform: translateX(-100%);
+	width: 100%;
+	height: 100%;
+	background-color: var(--primary);
+	transition: all 0.2s ease 0s;
+	z-index: 20;
+	padding-top: toRem(105);
+	padding-inline: toRem($containerPadding / 2);
+	.menu {
+		padding-top: toRem(30);
+		&__list {
+			flex-direction: column;
+			align-items: start;
+			color: var(--white);
+			width: 100%;
+			gap: 0;
+		}
+		&__item {
+			width: 100%;
+		}
+		&__link {
+			width: 100%;
+			padding-block: toRem(18);
+		}
+		&__link_contact {
+			span {
+				background-color: var(--white);
+				color: var(--primary);
+			}
+		}
+	}
+}
+._active {
+	transform: translateX(0%);
+}

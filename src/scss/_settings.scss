@@ -1,0 +1,69 @@
+// fonts
+// &display=swap
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic&display=swap");
+
+// Variables
+:root {
+	// Шрифт по умолчанию ==============================================================================================================================================================================================================================================================================
+	--font-family: "Inter";
+	--font-wieght: 400;
+	--font-size: 1rem; // где 16(px) - размер шрифта по умолчанию
+	// Default colors
+	--main-text-color: #001630;
+	--primary: #001630; // rgb(176, 14, 47)
+	--primary2: #00d49c;
+	--white: #fff;
+}
+
+$maxWidth: 1920;
+$minWidth: 370;
+$maxWidthContainer: 1628;
+$containerPadding: 25;
+$containerWidth: $maxWidthContainer + $containerPadding * 2;
+
+// Responsive Video
+%responsiveVideo {
+	position: relative;
+	overflow: hidden;
+	height: 0;
+	padding-bottom: 56.25%;
+	video,
+	iframe,
+	object,
+	embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+// Video Background
+%videoBackground {
+	video,
+	iframe,
+	object,
+	embed {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
+		z-index: -100;
+		transform: translateX(-50%) translateY(-50%);
+		background-size: cover;
+	}
+}
+// Gray filter
+%grayfilter {
+	transition: all 0.3s ease 0s;
+	filter: grayscale(1);
+	@media (any-hover: hover) {
+		&:hover {
+			filter: grayscale(0);
+		}
+	}
+}
