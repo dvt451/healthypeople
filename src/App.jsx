@@ -12,6 +12,7 @@ import AllNewsPage from './components/pages/AllNewsPage';
 import NewsPage from './components/pages/NewsPage';
 import Contacts from './components/pages/Contacts/Contacts';
 import PriceListPage from './components/pages/PriceList/PriceListPage';
+import ScrollToTop from './components/ScrollToTop';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
 			<div className="wrapper">
 				<MyContextProvider>
 					<BrowserRouter>
+						<ScrollToTop />
 						<Header />
 						<Routes>
 							<Route element={<Home />} path='/' />
