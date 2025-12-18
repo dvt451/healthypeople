@@ -1,0 +1,179 @@
+@use "../settings" as *;
+@use "../base/mixins" as *;
+//====================================================================================================
+.price-list-page {
+	padding-bottom: toRem(92);
+	&__title {
+		@include adaptiveValue("padding-top", 110, 20, 991.98);
+		@include adaptiveValue("padding-bottom", 80, 40, 991.98);
+	}
+	&__price-list {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(10);
+	}
+	&__body {
+		display: flex;
+		gap: toRem(10);
+		@media (max-width: $tablet) {
+			flex-direction: column;
+		}
+	}
+	&__column {
+		@media (min-width: $tablet) {
+			&:nth-child(2) {
+				flex: 1 0 toRem(500);
+			}
+		}
+	}
+}
+.accordion {
+	&__head {
+		background-color: #f3f3f3;
+		padding: toRem(20) toRem(30);
+		@include adaptiveValue("font-size", 35, 25, $maxWidthContainer, 767.98);
+		font-family: "Montserrat";
+	}
+	&__clean {
+		@include adaptiveValue("font-size", 20, 16);
+		@include adaptiveValue("padding-block", 15, 10);
+		@include adaptiveValue("padding-inline", 25, 20);
+		background-color: var(--primary);
+		color: var(--white);
+		border-radius: toRem(20);
+		transition: all 0.1s ease;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: var(--primary2);
+			}
+		}
+	}
+}
+$gridColumns: repeat(2, 1fr) auto auto;
+$gridColumnsMD400: 1fr toRem(100) auto;
+$gap: toRem(20);
+
+.price-list-block {
+	padding: toRem(0) toRem(20);
+	// .price-list-block__head
+
+	&__head {
+		display: grid;
+		grid-template-columns: $gridColumns;
+		@media (max-width: em(400)) {
+			grid-template-columns: $gridColumnsMD400;
+		}
+		gap: $gap;
+		border-bottom: toRem(2) solid;
+		font-weight: 600;
+		padding: toRem(20) 0;
+	}
+
+	// .price-list-block__column-title
+
+	&__column-title {
+		&:nth-child(2) {
+			@media (max-width: em(400)) {
+				display: none;
+			}
+		}
+	}
+
+	// .price-list-block__body
+
+	&__body {
+		display: grid;
+		grid-template-columns: $gridColumns;
+		@media (max-width: em(400)) {
+			grid-template-columns: $gridColumnsMD400;
+		}
+		align-items: center;
+		padding: toRem(30) 0;
+		gap: $gap;
+		&:not(:last-child) {
+			border-bottom: toRem(1) solid;
+		}
+	}
+
+	// .price-list-block__column
+
+	&__column {
+		&:nth-child(2) {
+			max-width: toRem(300);
+			@media (max-width: em(400)) {
+				display: none;
+			}
+		}
+	}
+
+	&__button {
+		background-color: var(--primary2);
+		width: toRem(50);
+		height: toRem(50);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50%;
+		position: relative;
+		span {
+			width: 50%;
+			height: toRem(2);
+			background-color: var(--white);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			&:nth-child(2) {
+				transform: translate(-50%, -50%) rotate(90deg);
+			}
+		}
+	}
+}
+.price-list-calculator {
+	position: sticky;
+	top: toRem(120);
+	.price-list-block__head,
+	.price-list-block__body {
+		grid-template-columns: repeat(2, 1fr) auto;
+		.price-list-block__column,
+		.price-list-block__column-title {
+			&:nth-child(2) {
+				@media (max-width: em(400)) {
+					display: block !important;
+				}
+			}
+		}
+	}
+}
+.quantity-control {
+	display: flex;
+	align-items: center;
+	gap: toRem(10);
+}
+.quantity-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: toRem(30);
+	height: toRem(30);
+	font-size: toRem(30);
+	border-radius: 50%;
+}
+.minus {
+	background-color: var(--primary);
+	color: var(--white);
+}
+.quantity-value {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.plus {
+	background-color: var(--primary2);
+}
+.price-list-total {
+	text-align: right;
+	border-top: toRem(1) solid;
+	padding-top: toRem(30);
+	font-weight: 600;
+}

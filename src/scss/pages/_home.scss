@@ -7,7 +7,7 @@
 	&__hero {
 	}
 }
-.home-page-hero {
+.hero {
 	padding-top: toRem(95);
 	@media (max-width: $tablet) {
 		padding-top: toRem(30);
@@ -26,7 +26,7 @@
 	&__bottom {
 		padding-top: toRem(100);
 	}
-	// .home-page-hero__column
+	// .hero__column
 
 	&__column {
 		flex: 1 1 auto;
@@ -38,17 +38,17 @@
 		}
 	}
 }
-.home-page-hero-content {
+.hero-content {
 	display: flex;
 	flex-direction: column;
 	gap: toRem(25);
 
-	&__home-page-hero-image {
+	&__hero-image {
 		@media (min-width: $tablet) {
 			display: none !important;
 		}
 	}
-	// .home-page-hero-content__title
+	// .hero-content__title
 
 	&__title {
 		@media (min-width: $tablet) {
@@ -56,7 +56,7 @@
 		}
 	}
 
-	// .home-page-hero-content__sub-title
+	// .hero-content__sub-title
 
 	&__sub-title {
 		font-size: toRem(18);
@@ -66,7 +66,7 @@
 		}
 	}
 
-	// .home-page-hero-content__button
+	// .hero-content__button
 
 	&__button {
 		display: flex;
@@ -109,7 +109,7 @@
 		}
 	}
 }
-.home-page-hero-image {
+.hero-image {
 	position: relative;
 	display: flex;
 	justify-content: flex-end;
@@ -117,25 +117,26 @@
 	@media (max-width: $tablet) {
 		justify-content: start;
 	}
-	// .home-page-hero-image__overlay
+	// .hero-image__overlay
 
 	&__overlay {
 	}
 
-	// .home-page-hero-image__screen
+	// .hero-image__screen
 
 	&__screen {
 		max-width: 65%;
 		@media (max-width: $tablet) {
 			max-width: 50%;
 		}
-		video {
+		video,
+		img {
 			width: 100%;
 		}
 	}
 }
-.home-page-hero-bottom {
-	// .home-page-hero-bottom__labels
+.hero-bottom {
+	// .hero-bottom__labels
 
 	&__labels {
 		display: flex;
@@ -145,13 +146,13 @@
 		}
 	}
 
-	// .home-page-hero-bottom__label
+	// .hero-bottom__label
 
 	&__label {
 		flex: 0 1 25%;
 	}
 }
-.home-page-hero-bottom-label {
+.hero-bottom-label {
 	border-top: toRem(1) solid;
 	display: flex;
 	flex-direction: column;
@@ -160,17 +161,17 @@
 	text-align: left;
 	@media (any-hover: hover) {
 		&:hover {
-			.home-page-hero-bottom-label__text {
+			.hero-bottom-label__text {
 				text-decoration: underline;
 			}
 		}
 	}
-	// .home-page-hero-bottom-label__number
+	// .hero-bottom-label__number
 
 	&__number {
 	}
 
-	// .home-page-hero-bottom-label__text
+	// .hero-bottom-label__text
 
 	&__text {
 		transition: all 0.3s ease;

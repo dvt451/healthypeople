@@ -1,0 +1,134 @@
+@use "../settings" as *;
+@use "../base/mixins" as *;
+//====================================================================================================
+.contacts-page {
+	padding-bottom: toRem(92);
+	.hero {
+		&__column {
+		}
+		padding-bottom: toRem(92);
+	}
+	.hero-content {
+		// @include adaptiveValue("gap", 300, 250, 1920, 767.98);
+		&__title {
+			@media (min-width: $pc) {
+				white-space: nowrap;
+			}
+			@media (min-width: $tablet) {
+				padding-bottom: 30%;
+			}
+		}
+		&__contacts {
+			display: flex;
+			flex-direction: column;
+			gap: toRem(10);
+			> div {
+				font-size: toRem(20);
+				a {
+					text-decoration: underline;
+					@media (any-hover: hover) {
+						&:hover {
+							text-decoration: none;
+						}
+					}
+				}
+			}
+		}
+	}
+	.hero-image {
+	}
+	// .contacts-page__list
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(10);
+		@media (max-width: $tablet) {
+			gap: toRem(30);
+		}
+	}
+}
+.contacts-item {
+	display: grid;
+	grid-template-columns: 1fr 1fr 0.8fr;
+	@media (max-width: $tablet) {
+		grid-template: 1fr / 1fr;
+		border-top: toRem(1) solid;
+		padding-top: toRem(30);
+		gap: toRem(30);
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			iframe {
+				filter: grayscale(0%);
+			}
+		}
+	}
+	iframe {
+		width: 100%;
+		min-height: toRem(250);
+		border: none;
+		@media (min-width: $tablet) {
+			filter: grayscale(100%);
+		}
+	}
+	// .contacts-item__city
+
+	&__city {
+		font-size: toRem(40);
+		display: flex;
+		flex-direction: column;
+		font-family: "Montserrat";
+		span {
+			color: var(--primary2);
+		}
+	}
+
+	// .contacts-item__body
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(20);
+		justify-content: center;
+		@media (min-width: $tablet) {
+			border-top: toRem(1) solid;
+			padding-top: toRem(20);
+			margin-left: toRem(30);
+		}
+		a {
+			@media (any-hover: hover) {
+				&:hover {
+					span {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+
+	&__map {
+		@media (min-width: $tablet) {
+			padding-top: toRem(20);
+			border-top: toRem(1) solid;
+		}
+	}
+
+	// .contacts-item__title
+
+	&__title {
+	}
+
+	// .contacts-item__address
+
+	&__address {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(5);
+	}
+
+	// .contacts-item__phone
+
+	&__phone {
+	}
+}

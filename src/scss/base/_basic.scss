@@ -1,7 +1,8 @@
 @use "../settings" as *;
 @use "../base/mixins" as *;
 
-@forward "../libs/marquee";
+@forward "../libs/accordion";
+@forward "../libs/lenis";
 
 // Example usage of variables
 

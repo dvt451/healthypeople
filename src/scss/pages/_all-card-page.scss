@@ -1,0 +1,42 @@
+@use "../settings" as *;
+@use "../base/mixins" as *;
+//========================================================================================================================================================
+.all-card-page {
+	// .all-card-page__container
+	padding-bottom: toRem(92);
+
+	&__container {
+	}
+
+	&__title {
+		@include adaptiveValue("padding-top", 110, 20, 991.98);
+		@include adaptiveValue("padding-bottom", 80, 40, 991.98);
+	}
+
+	// .all-card-page__list
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: toRem(10);
+		> a {
+			flex: 1 0 toRem(400);
+		}
+	}
+}
+.related {
+	padding-top: toRem(92);
+	// .related__list
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: toRem(10);
+		> a {
+			flex: 1 0 toRem(350);
+		}
+	}
+	&__title {
+		@include adaptiveValue("margin-bottom", 60, 30, 991.98);
+	}
+}

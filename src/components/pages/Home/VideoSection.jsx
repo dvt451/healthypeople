@@ -30,7 +30,6 @@ export default function VideoSection() {
 						preload="metadata"
 						disablePictureInPicture
 						poster="/images/video-poster.png"
-						style={{ cursor: 'pointer' }}
 						aria-label="Hospital video presentation"
 					>
 						<source src="/videos/clouds.mp4" type='video/mp4' />

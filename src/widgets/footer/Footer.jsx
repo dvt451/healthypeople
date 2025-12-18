@@ -12,19 +12,19 @@ export default function Footer() {
 	return (
 		<footer className='footer'>
 			<div className="footer__top">
-				<div className='footer__cnt-left'>
+				<div className='footer__container'>
 					<div className="footer__column footer-content">
 						<div className="footer__title">We find clean air and solve the problems others walk away from</div>
 					</div>
 					<div className="footer__column footer-video">
 						<video controlsList="nodownload" autoPlay playsInline muted loop >
-							<source src="/videos/mitosis.mp4" type='video/mp4' />
+							<source src="/videos/clouds.mp4" type='video/mp4' />
 						</video>
 					</div>
 				</div>
 			</div>
 			<div className="footer__main">
-				<div className="footer__container">
+				<div className="footer__container-main">
 					<HeaderLogo />
 					<div className='contact-item-wrapper'>
 						<a href='https://maps.app.goo.gl/3dSh3j6XF8JDDsJ98' target='_blank' className="contact-item">

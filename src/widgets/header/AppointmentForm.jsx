@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { MyContext } from '../../shared/hooks/MyContextProvider';
 
 export default function AppointmentForm() {
-	const { menuHandler, headerState, burgerState } = useContext(MyContext);
+	const { menuHandler } = useContext(MyContext);
 	return (
 		<div className='header-sub-menu'>
 			<button onClick={menuHandler} className="header-sub-menu__Layer"></button>

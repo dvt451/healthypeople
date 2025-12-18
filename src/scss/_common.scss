@@ -56,3 +56,172 @@
 .section-head {
 	padding-bottom: toRem(60);
 }
+.page-card {
+	display: flex;
+	flex-direction: column;
+	@media (any-hover: hover) {
+		&:hover {
+			.page-card__image {
+				img {
+					transform: scale(1.3);
+				}
+			}
+			.page-card__content {
+				background-color: var(--primary2);
+			}
+		}
+	}
+
+	// .page-card__image
+	&__image {
+		position: relative;
+		width: 100%;
+		padding-top: 60%;
+		overflow: hidden;
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+			transition: all 0.5s ease;
+			transform: scale(1);
+		}
+	}
+
+	// .page-card__content
+
+	&__content {
+		background-color: #f3f3f3;
+		padding: toRem(20);
+		display: flex;
+		flex-direction: column;
+		gap: toRem(15);
+		transition: all 0.2s ease;
+		flex: 1 1 auto;
+	}
+
+	// .page-card__title
+
+	&__title {
+		font-family: "Montserrat";
+		font-size: toRem(40);
+	}
+
+	// .page-card__text
+
+	&__text {
+		flex: 1 1 auto;
+	}
+
+	// .page-card__date
+
+	&__date {
+		font-size: toRem(12);
+	}
+
+	// .page-card__author
+
+	&__author {
+		display: flex;
+		align-items: center;
+		gap: toRem(11);
+		// .page-card__author_image
+
+		&_image {
+			width: toRem(50);
+			height: toRem(50);
+			border-radius: 50%;
+			overflow: hidden;
+			position: relative;
+			img {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				object-fit: cover;
+			}
+		}
+
+		// .page-card__author_name
+
+		&_name {
+			font-size: toRem(14);
+		}
+	}
+}
+.related-card {
+	display: flex;
+	flex-direction: column;
+	@media (any-hover: hover) {
+		&:hover {
+			.related-card__content {
+				background-color: var(--primary2);
+			}
+		}
+	}
+
+	// .page-card__content
+
+	&__content {
+		background-color: #f3f3f3;
+		padding: toRem(20);
+		display: flex;
+		flex-direction: column;
+		gap: toRem(15);
+		transition: all 0.2s ease;
+		flex: 1 1 auto;
+	}
+
+	// .page-card__title
+
+	&__title {
+		font-family: "Montserrat";
+		font-size: toRem(24);
+	}
+
+	// .page-card__text
+
+	&__text {
+		flex: 1 1 auto;
+	}
+
+	// .page-card__date
+
+	&__date {
+		font-size: toRem(12);
+	}
+
+	// .page-card__author
+
+	&__author {
+		display: flex;
+		align-items: center;
+		gap: toRem(11);
+		// .page-card__author_image
+
+		&_image {
+			width: toRem(50);
+			height: toRem(50);
+			border-radius: 50%;
+			overflow: hidden;
+			position: relative;
+			img {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				object-fit: cover;
+			}
+		}
+
+		// .page-card__author_name
+
+		&_name {
+			font-size: toRem(14);
+		}
+	}
+}

@@ -8,7 +8,7 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 // Импортируем стили Swiper
 import 'swiper/css';
 
-export default function SliderSection({ nameClass = '', arrayItems = [], sectionTitle = '' }) {
+export default function SliderSection({ nameClass = '', arrayItems = [], sectionTitle = '', slugAddress = '' }) {
 	return (
 		<div className={`${nameClass}slider-section`}>
 			<div className="slider-section__container">
@@ -52,10 +52,12 @@ export default function SliderSection({ nameClass = '', arrayItems = [], section
 					className="departments-slider"
 				>
 					{arrayItems.map((item, index) => (
-						<SwiperSlide key={item.id}>
+
+						<SwiperSlide key={index}>
 							<SliderCard
 								i={index}
 								item={item}
+								slugAddress={slugAddress}
 							/>
 						</SwiperSlide>
 					))}

@@ -5,6 +5,13 @@ import Home from './components/pages/Home/Home';
 import Header from './widgets/header/Header';
 import './scss/style.scss';
 import Footer from './widgets/footer/Footer';
+import About from './components/pages/about/About';
+import DepartmentPage from './components/pages/DepartmentPage';
+import AllDepartmentsPage from './components/pages/AllDepartmentsPage';
+import AllNewsPage from './components/pages/AllNewsPage';
+import NewsPage from './components/pages/NewsPage';
+import Contacts from './components/pages/Contacts/Contacts';
+import PriceListPage from './components/pages/PriceList/PriceListPage';
 
 
 function App() {
@@ -22,6 +29,13 @@ function App() {
 						<Header />
 						<Routes>
 							<Route element={<Home />} path='/' />
+							<Route element={<About />} path='/about' />
+							<Route element={<AllDepartmentsPage />} path='/departments' />
+							<Route element={<AllNewsPage />} path='/news' />
+							<Route element={<Contacts />} path='/contacts' />
+							<Route element={<PriceListPage />} path='/price-list' />
+							<Route element={<DepartmentPage />} path='/departments/:slug' />
+							<Route element={<NewsPage />} path='/news/:slug' />
 						</Routes>
 						<Footer />
 					</BrowserRouter>

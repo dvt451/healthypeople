@@ -1,0 +1,74 @@
+@use "../settings" as *;
+@use "../base/mixins" as *;
+//====================================================================================================
+
+.accordion {
+	transition: all 0.3s;
+	// .accordion__item
+
+	&__item {
+		transition: background-color 0.4s;
+		overflow: hidden;
+		transition: all 0.3s;
+		&._active {
+			.accordion__head {
+			}
+			// .accordion__icon
+			.accordion__icon {
+				transform: rotate(90deg);
+			}
+			.accordion__content {
+				grid-template-rows: 1fr;
+				transform-style: preserve-3d;
+				opacity: 1;
+				height: auto;
+			}
+		}
+	}
+
+	// .accordion__head
+
+	&__head {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+		transition: all 0.5s;
+		gap: toRem(20);
+		position: relative;
+		span {
+			margin-right: toRem(25);
+		}
+	}
+
+	// .accordion__title
+
+	&__title {
+		text-align: left;
+	}
+
+	// .accordion__icon
+
+	&__icon {
+		transition: all 0.4s ease;
+	}
+
+	// .accordion__content
+
+	&__content {
+		transform-style: preserve-3d;
+		opacity: 0;
+		height: 0;
+		will-change: transform, width, height, opacity;
+		display: grid;
+		grid-template-rows: 0fr;
+		interpolate-size: allow-keywords;
+		transition: all 0.4s ease;
+	}
+
+	// .accordion__text
+
+	&__text {
+		overflow: hidden;
+	}
+}

@@ -21,7 +21,7 @@ export default function Header() {
 				<button type="button" onClick={() => setBurgerState(!burgerState)} className={`burger__icon burger-button ${burgerState ? '_active' : ''}`}><span></span></button>
 			</div>
 			<div style={{ transform: burgerState && headerState && "translateX(-400px)" }} className={`burger-body${burgerState ? ' _active' : ''}`}>
-				<HeaderMenu nameClass='burger-body__menu ' menuHandler={menuHandler} />
+				<HeaderMenu nameClass='burger-body__menu ' />
 			</div>
 			<AppointmentForm />
 		</div >

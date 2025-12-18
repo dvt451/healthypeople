@@ -161,6 +161,11 @@
 			}
 			&.active {
 				font-weight: 600;
+				span {
+					&::before {
+						width: 100%;
+					}
+				}
 			}
 		}
 		&_contact {
@@ -202,6 +207,7 @@
 		width: 100%;
 	}
 	&__close-button {
+		margin-left: auto;
 		@media (min-width: $mobile) {
 			display: none !important;
 		}
